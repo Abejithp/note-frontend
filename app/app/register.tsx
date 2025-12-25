@@ -49,8 +49,8 @@ export default function RegisterScreen() {
 
       const userName = response.user?.name || name;
       Alert.alert('Success', `Welcome ${userName}!`);
-      // Navigate to home screen
-      router.replace('/');
+      // Navigate to notes page
+      router.replace('/(tabs)/notes');
     } catch (error: any) {
       console.error('Register error:', error);
       const errorMessage = error.response?.data?.detail || error.message || 'Registration failed';

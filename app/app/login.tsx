@@ -36,8 +36,8 @@ export default function LoginScreen() {
 
       const userName = response.user?.name || 'User';
       Alert.alert('Success', `Welcome ${userName}!`);
-      // Navigate to home screen (explicit index)
-      router.replace('/');
+      // Navigate to notes page
+      router.replace('/(tabs)/notes');
     } catch (error: any) {
       console.error('Login error:', error);
       const errorMessage = error.response?.data?.detail || error.message || 'Login failed';

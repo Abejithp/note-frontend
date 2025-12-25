@@ -21,7 +21,8 @@ class ApiClient {
       async (error: AxiosError) => {
         const originalRequest = error.config as any;
 
-        if (error.response?.status === 401 && !originalRequest._retry) {
+        // Prevent infinite refresh loops
+        if (error.response?.status === 401 && !originalRequest._retry && originalRequest.url !== '/auth/refresh') {
           originalRequest._retry = true;
 
           try {
