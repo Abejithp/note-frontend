@@ -33,10 +33,6 @@ export default function LoginScreen() {
       });
 
       console.log('[LoginScreen] Login response:', response);
-
-      const userName = response.user?.name || 'User';
-      Alert.alert('Success', `Welcome ${userName}!`);
-      // Navigate to notes page
       router.replace('/(tabs)/notes');
     } catch (error: any) {
       console.error('Login error:', error);
